@@ -117,6 +117,8 @@ new_activity_2 <- cbind(new_activity, weekday_factor)
 Now group the dataset by interval and whether the measurement was taken on a weekend or weekday, and plot the average number of steps for each 5-minute interval (across all days) for both datasets within a two-panel plot.
 
 ```{r plot_weekday}
+##weekday_data <- subset(new_activity_2, new_activity_2$weekday_factor == "Weekday")
+##weekend_data <- subset(new_activity_2, new_activity_2$weekday_factor == "Weekend")
 library(lattice)
 weekday_grouped <- group_by(new_activity_2, interval, weekday_factor)
 weekday_means <- summarise(weekday_grouped, mean_steps = mean(steps))
